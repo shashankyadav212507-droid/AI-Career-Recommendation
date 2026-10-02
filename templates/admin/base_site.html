@@ -1,0 +1,75 @@
+{% extends "admin/base.html" %}
+
+{% load static %}
+
+{% block title %}
+    {{ title }} | AI Career Guide Admin
+{% endblock %}
+
+
+{% block extrastyle %}
+
+    {{ block.super }}
+
+    <link rel="stylesheet"
+          href="{% static 'admin/css/custom_admin.css' %}">
+
+{% endblock %}
+
+
+{% block branding %}
+
+<div id="site-name">
+
+    <a href="{% url 'admin:index' %}">
+
+        <span class="admin-brand-icon">
+            <i class="bi bi-stars"></i>
+        </span>
+
+        <span class="admin-brand-text">
+            AI Career Guide
+        </span>
+
+        <span class="admin-brand-badge">
+            ADMIN
+        </span>
+
+    </a>
+
+</div>
+
+{% endblock %}
+
+
+{% block nav-global %}
+
+<div class="admin-welcome-bar">
+
+    <div class="admin-welcome-content">
+
+        <div>
+
+            <span class="welcome-icon">
+                <i class="bi bi-robot"></i>
+            </span>
+
+            <span>
+                AI Career Guide Administration
+            </span>
+
+        </div>
+
+        <div class="admin-status">
+
+            <span class="status-dot"></span>
+
+            System Online
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+education,programming_languages,technical_skills,interests,experience_level,preferred_domain,cgpa,problem_solving,work_preference,work_type,career
+BCA,Python,"Python, Pandas, NumPy",Data Analysis,Beginner,Data Science,8.2,Intermediate,Data,Hybrid,Data Analyst
+BCA,Python,"Python, Django, SQL",Web Development,Intermediate,Web Development,8.0,Advanced,Development,Remote,Python Developer
+BCA,Java,"Java, OOP, SQL",Application Development,Intermediate,Software Development,8.5,Advanced,Development,On-site,Java Developer
+BCA,JavaScript,"HTML, CSS, JavaScript, Bootstrap",Web Design,Beginner,Web Development,7.8,Intermediate,Development,Remote,Web Developer
+BCA,Python,"Python, Scikit-learn, Pandas",Artificial Intelligence,Advanced,AI/ML,8.8,Advanced,Research,Hybrid,ML Engineer
+BCA,Python,"Python, NumPy, Pandas, Matplotlib",Data Analysis,Intermediate,Data Science,8.4,Advanced,Data,Remote,Data Scientist
+BCA,C++,"C++, Networking, Linux",Security,Intermediate,Cyber Security,8.1,Advanced,Research,On-site,Cyber Security Analyst
+BCA,Python,"Python, SQL, Excel",Business Analysis,Beginner,Data Science,7.6,Intermediate,Data,Hybrid,Data Analyst
+BCA,JavaScript,"HTML, CSS, JavaScript, React",Frontend Development,Intermediate,Web Development,8.3,Advanced,Development,Remote,Frontend Developer
+BCA,Python,"Python, Django, REST API, SQL",Backend Development,Advanced,Software Development,8.7,Advanced,Development,Remote,Backend Developer
+BCA,Java,"Java, Spring, SQL, OOP",Software Development,Advanced,Software Development,8.6,Advanced,Development,On-site,Java Developer
+BCA,Python,"Python, TensorFlow, Scikit-learn",Machine Learning,Advanced,AI/ML,9.0,Advanced,Research,Hybrid,ML Engineer
+BCA,C++,"C++, Algorithms, Data Structures",Programming,Intermediate,Software Development,8.4,Advanced,Development,On-site,Software Developer
+BCA,PHP,"PHP, MySQL, HTML, CSS",Web Development,Intermediate,Web Development,7.9,Intermediate,Development,On-site,PHP Developer
+BCA,Python,"Python, SQL, Power BI",Data Visualization,Intermediate,Data Science,8.1,Advanced,Data,Hybrid,Data Analyst
+BCA,Python,"Python, Linux, Networking",Network Security,Advanced,Cyber Security,8.5,Advanced,Research,On-site,Cyber Security Analyst
+BCA,JavaScript,"JavaScript, React, CSS, HTML",Frontend Development,Intermediate,Web Development,8.2,Advanced,Development,Remote,Frontend Developer
+BCA,Python,"Python, Django, PostgreSQL",Backend Development,Intermediate,Software Development,8.0,Advanced,Development,Hybrid,Backend Developer
+BCA,Python,"Python, Pandas, Machine Learning",AI Research,Advanced,AI/ML,9.1,Advanced,Research,Remote,ML Engineer
+BCA,SQL,"SQL, MySQL, DBMS, Excel",Database Management,Intermediate,Database,8.0,Advanced,Data,On-site,Database Administrator
+BCA,Python,"Python, AWS, Linux",Cloud Computing,Intermediate,Cloud Computing,8.3,Advanced,Development,Hybrid,Cloud Engineer
+BCA,Java,"Java, Android, SQLite",Mobile Development,Intermediate,Software Development,8.1,Intermediate,Development,On-site,Android Developer
+BCA,JavaScript,"HTML, CSS, JavaScript, Bootstrap",Web Development,Beginner,Web Development,7.5,Intermediate,Development,Remote,Web Developer
+BCA,Python,"Python, SQL, Pandas",Data Analysis,Beginner,Data Science,7.8,Intermediate,Data,Hybrid,Data Analyst
+BCA,C++,"C++, DSA, OOP",Competitive Programming,Advanced,Software Development,8.9,Advanced,Development,On-site,Software Developer

@@ -1,0 +1,856 @@
+{% extends 'base.html' %}
+
+{% block title %}Career Recommendation | AI Career Guide{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+```
+<!-- PAGE HEADING -->
+<div class="text-center mb-5">
+
+    <h1 class="fw-bold">
+        AI Career Recommendation
+    </h1>
+
+    <p class="text-muted">
+        Your profile has been analyzed by our Machine Learning model.
+    </p>
+
+</div>
+
+
+<!-- MAIN RECOMMENDATION -->
+<div class="card shadow-lg border-0 rounded-4 mb-4">
+
+    <div class="card-body p-4 p-md-5 text-center">
+
+        <span class="badge bg-primary px-3 py-2 mb-3">
+
+            <i class="bi bi-stars"></i>
+            Top Career Recommendation
+
+        </span>
+
+        <h2 class="fw-bold mb-3">
+            {{ career }}
+        </h2>
+
+        <p class="text-muted mb-2">
+            AI Match Confidence
+        </p>
+
+        <h4 class="fw-bold text-primary">
+            {{ confidence }}%
+        </h4>
+
+        <div class="progress mt-3" style="height: 12px;">
+
+            <div
+                class="progress-bar main-confidence-bar"
+                role="progressbar"
+                data-confidence="{{ confidence }}"
+                aria-valuenow="{{ confidence }}"
+                aria-valuemin="0"
+                aria-valuemax="100">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- AI CAREER SUMMARY -->
+<div class="card shadow-sm border-0 rounded-4 mb-4">
+
+    <div class="card-body p-4">
+
+        <h4 class="fw-bold mb-3">
+
+            <i class="bi bi-robot text-primary"></i>
+            AI Career Summary
+
+        </h4>
+
+        <p class="text-muted mb-0">
+            {{ career_summary }}
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- CAREER DESCRIPTION -->
+<div class="card shadow-sm border-0 rounded-4 mb-4">
+
+    <div class="card-body p-4">
+
+        <h4 class="fw-bold mb-3">
+
+            <i class="bi bi-info-circle-fill text-primary"></i>
+            About This Career
+
+        </h4>
+
+        <p class="text-muted mb-0">
+            {{ description }}
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- RELEVANT SKILLS -->
+<div class="card shadow-sm border-0 rounded-4 mb-4">
+
+    <div class="card-body p-4">
+
+        <h4 class="fw-bold mb-3">
+
+            <i class="bi bi-code-slash text-primary"></i>
+            Relevant Skills
+
+        </h4>
+
+        <div class="d-flex flex-wrap gap-2">
+
+            {% for skill in skills %}
+
+                <span class="badge bg-primary px-3 py-2">
+                    {{ skill }}
+                </span>
+
+            {% empty %}
+
+                <span class="text-muted">
+                    No skill information available.
+                </span>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- SKILLS TO LEARN -->
+<div class="card shadow-sm border-0 rounded-4 mb-4">
+
+    <div class="card-body p-4">
+
+        <h4 class="fw-bold mb-3">
+
+            <i class="bi bi-book-fill text-primary"></i>
+            Skills to Learn
+
+        </h4>
+
+        <div class="row g-3">
+
+            {% for item in learn %}
+
+                <div class="col-md-6">
+
+                    <div class="border rounded-3 p-3 h-100">
+
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+
+                        {{ item }}
+
+                    </div>
+
+                </div>
+
+            {% empty %}
+
+                <div class="col-12">
+
+                    <p class="text-muted mb-0">
+                        No learning recommendations available.
+                    </p>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- CAREER ROADMAP -->
+<div class="card shadow-sm border-0 rounded-4 mb-4">
+
+    <div class="card-body p-4 p-md-5">
+
+        <h4 class="fw-bold mb-2">
+
+            <i class="bi bi-signpost-2-fill text-primary"></i>
+            Career Roadmap
+
+        </h4>
+
+        <p class="text-muted mb-4">
+
+            Follow these steps to build your career in
+
+            <strong>
+                {{ career }}
+            </strong>.
+
+        </p>
+
+
+        <div class="roadmap-container">
+
+            {% for step in roadmap %}
+
+                <div class="roadmap-item">
+
+                    <div class="roadmap-number">
+                        {{ forloop.counter }}
+                    </div>
+
+                    <div class="roadmap-content">
+
+                        <div class="roadmap-step">
+                            STEP {{ forloop.counter }}
+                        </div>
+
+                        <p class="roadmap-title">
+                            {{ step }}
+                        </p>
+
+                    </div>
+
+                </div>
+
+            {% empty %}
+
+                <p class="text-muted">
+                    No career roadmap available.
+                </p>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- AI CAREER ANALYSIS -->
+<div class="card shadow-sm border-0 rounded-4 mb-4">
+
+    <div class="card-body p-4">
+
+        <h4 class="fw-bold mb-2">
+
+            <i class="bi bi-bar-chart-fill text-primary"></i>
+            AI Career Analysis
+
+        </h4>
+
+        <p class="text-muted mb-4">
+            Visual comparison of your top career matches.
+        </p>
+
+
+        <div
+            style="
+                position: relative;
+                width: 100%;
+                height: 350px;
+            ">
+
+            <canvas id="careerChart"></canvas>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOP 3 CAREER MATCHES -->
+<div class="card shadow-sm border-0 rounded-4 mb-4">
+
+    <div class="card-body p-4">
+
+        <h4 class="fw-bold mb-2">
+
+            <i class="bi bi-trophy-fill text-warning"></i>
+            Top 3 Career Matches
+
+        </h4>
+
+        <p class="text-muted mb-4">
+            Careers matched with your skills and preferences.
+        </p>
+
+
+        {% for item in top_careers %}
+
+            <div class="mb-4">
+
+                <div class="d-flex justify-content-between align-items-center mb-2">
+
+                    <div>
+
+                        <span class="badge bg-dark me-2">
+                            #{{ forloop.counter }}
+                        </span>
+
+                        <strong>
+                            {{ item.career }}
+                        </strong>
+
+                    </div>
+
+                    <strong>
+                        {{ item.confidence }}%
+                    </strong>
+
+                </div>
+
+
+                <div class="progress" style="height: 10px;">
+
+                    <div
+                        class="progress-bar career-progress-bar"
+                        role="progressbar"
+                        data-confidence="{{ item.confidence }}"
+                        aria-valuenow="{{ item.confidence }}"
+                        aria-valuemin="0"
+                        aria-valuemax="100">
+                    </div>
+
+                </div>
+
+            </div>
+
+        {% empty %}
+
+            <p class="text-muted">
+                No career matches available.
+            </p>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+
+<!-- USER PROFILE -->
+<div class="card shadow-sm border-0 rounded-4 mb-4">
+
+    <div class="card-body p-4">
+
+        <h4 class="fw-bold mb-4">
+
+            <i class="bi bi-person-fill text-primary"></i>
+            Your Profile
+
+        </h4>
+
+
+        <div class="row g-3">
+
+            <div class="col-md-6">
+
+                <div class="border rounded-3 p-3 h-100">
+
+                    <small class="text-muted">
+                        Education
+                    </small>
+
+                    <div class="fw-bold">
+                        {{ education }}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <div class="border rounded-3 p-3 h-100">
+
+                    <small class="text-muted">
+                        CGPA
+                    </small>
+
+                    <div class="fw-bold">
+                        {{ cgpa }}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <div class="border rounded-3 p-3 h-100">
+
+                    <small class="text-muted">
+                        Programming Languages
+                    </small>
+
+                    <div class="fw-bold">
+                        {{ programming_languages }}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <div class="border rounded-3 p-3 h-100">
+
+                    <small class="text-muted">
+                        Technical Skills
+                    </small>
+
+                    <div class="fw-bold">
+                        {{ technical_skills }}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <div class="border rounded-3 p-3 h-100">
+
+                    <small class="text-muted">
+                        Career Interests
+                    </small>
+
+                    <div class="fw-bold">
+                        {{ interests }}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <div class="border rounded-3 p-3 h-100">
+
+                    <small class="text-muted">
+                        Experience Level
+                    </small>
+
+                    <div class="fw-bold">
+                        {{ experience_level }}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <div class="border rounded-3 p-3 h-100">
+
+                    <small class="text-muted">
+                        Preferred Domain
+                    </small>
+
+                    <div class="fw-bold">
+                        {{ preferred_domain }}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <div class="border rounded-3 p-3 h-100">
+
+                    <small class="text-muted">
+                        Problem Solving
+                    </small>
+
+                    <div class="fw-bold">
+                        {{ problem_solving }}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <div class="border rounded-3 p-3 h-100">
+
+                    <small class="text-muted">
+                        Work Preference
+                    </small>
+
+                    <div class="fw-bold">
+                        {{ work_preference }}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <div class="border rounded-3 p-3 h-100">
+
+                    <small class="text-muted">
+                        Preferred Work Type
+                    </small>
+
+                    <div class="fw-bold">
+                        {{ work_type }}
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ACTION BUTTONS -->
+<div class="text-center mt-4 mb-3">
+
+    <a
+        href="{% url 'recommendation' %}"
+        class="btn btn-primary btn-lg px-4 me-2">
+
+        <i class="bi bi-arrow-repeat"></i>
+        Try Again
+
+    </a>
+
+
+    <a
+        href="{% url 'home' %}"
+        class="btn btn-outline-secondary btn-lg px-4">
+
+        <i class="bi bi-house-fill"></i>
+        Home
+
+    </a>
+
+</div>
+```
+
+</div>
+
+<!-- ==========================================
+     CHART.JS
+========================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
+<!--
+    Django converts top_careers into valid JSON here.
+    This keeps Django template syntax outside JavaScript.
+-->
+
+{{ top_careers|json_script:"career-data" }}
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    console.log("Career Recommendation page loaded");
+
+
+    /* ==========================================
+       MAIN CONFIDENCE PROGRESS BAR
+    ========================================== */
+
+    const mainBar =
+        document.querySelector(".main-confidence-bar");
+
+
+    if (mainBar) {
+
+        const confidence =
+            parseFloat(mainBar.dataset.confidence);
+
+
+        if (!isNaN(confidence)) {
+
+            mainBar.style.width =
+                Math.min(Math.max(confidence, 0), 100) + "%";
+
+        }
+
+    }
+
+
+    /* ==========================================
+       TOP CAREER PROGRESS BARS
+    ========================================== */
+
+    const careerBars =
+        document.querySelectorAll(".career-progress-bar");
+
+
+    careerBars.forEach(function (bar) {
+
+        const confidence =
+            parseFloat(bar.dataset.confidence);
+
+
+        if (!isNaN(confidence)) {
+
+            bar.style.width =
+                Math.min(Math.max(confidence, 0), 100) + "%";
+
+        }
+
+    });
+
+
+    /* ==========================================
+       CHECK CHART.JS
+    ========================================== */
+
+    if (typeof Chart === "undefined") {
+
+        console.error("Chart.js failed to load.");
+
+        return;
+
+    }
+
+
+    console.log(
+        "Chart.js loaded successfully:",
+        Chart.version
+    );
+
+
+    /* ==========================================
+       READ CAREER DATA FROM DJANGO JSON
+    ========================================== */
+
+    const careerDataElement =
+        document.getElementById("career-data");
+
+
+    if (!careerDataElement) {
+
+        console.error(
+            "Career data element not found."
+        );
+
+        return;
+
+    }
+
+
+    let careerData = [];
+
+
+    try {
+
+        careerData =
+            JSON.parse(careerDataElement.textContent);
+
+    } catch (error) {
+
+        console.error(
+            "Failed to parse career data:",
+            error
+        );
+
+        return;
+
+    }
+
+
+    /* ==========================================
+       PREPARE CHART DATA
+    ========================================== */
+
+    const careerLabels =
+        careerData.map(function (item) {
+
+            return item.career;
+
+        });
+
+
+    const careerScores =
+        careerData.map(function (item) {
+
+            return Number(item.confidence);
+
+        });
+
+
+    console.log(
+        "Career Labels:",
+        careerLabels
+    );
+
+
+    console.log(
+        "Career Scores:",
+        careerScores
+    );
+
+
+    /* ==========================================
+       GET CANVAS
+    ========================================== */
+
+    const chartCanvas =
+        document.getElementById("careerChart");
+
+
+    if (!chartCanvas) {
+
+        console.error(
+            "careerChart canvas not found."
+        );
+
+        return;
+
+    }
+
+
+    /* ==========================================
+       CREATE CHART
+    ========================================== */
+
+    new Chart(
+
+        chartCanvas,
+
+        {
+
+            type: "bar",
+
+
+            data: {
+
+                labels: careerLabels,
+
+
+                datasets: [
+
+                    {
+
+                        label:
+                            "AI Match Confidence (%)",
+
+                        data:
+                            careerScores,
+
+                        borderWidth: 1
+
+                    }
+
+                ]
+
+            },
+
+
+            options: {
+
+                responsive: true,
+
+                maintainAspectRatio: false,
+
+
+                scales: {
+
+                    y: {
+
+                        beginAtZero: true,
+
+                        max: 100,
+
+
+                        title: {
+
+                            display: true,
+
+                            text:
+                                "Confidence (%)"
+
+                        }
+
+                    },
+
+
+                    x: {
+
+                        title: {
+
+                            display: true,
+
+                            text:
+                                "Career"
+
+                        }
+
+                    }
+
+                },
+
+
+                plugins: {
+
+                    legend: {
+
+                        display: true
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    );
+
+
+    console.log(
+        "Career chart created successfully!"
+    );
+
+});
+
+</script>
+
+{% endblock %}

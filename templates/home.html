@@ -1,0 +1,917 @@
+{% extends 'base.html' %}
+
+{% block title %}Home | AI Career Guide{% endblock %}
+
+
+{% block content %}
+
+
+<!-- =====================================================
+     HERO SECTION
+===================================================== -->
+
+<section class="hero-section">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <!-- Hero Text -->
+
+            <div class="col-lg-7">
+
+                <span class="badge bg-light text-primary px-3 py-2 mb-3">
+                    <i class="bi bi-stars me-1"></i>
+                    AI-Powered Career Guidance
+                </span>
+
+
+                <h1 class="display-4 fw-bold mb-4">
+
+                    Discover Your
+
+                    <span class="text-warning">
+                        Perfect Career
+                    </span>
+
+                </h1>
+
+
+                <p class="lead mb-4">
+
+                    Get personalized career recommendations using
+                    Artificial Intelligence and Machine Learning
+                    based on your skills, interests, education,
+                    and career preferences.
+
+                </p>
+
+
+                <div class="d-flex flex-wrap gap-3">
+
+                    <a
+                        href="{% url 'recommendation' %}"
+                        class="btn btn-light btn-lg px-4"
+                    >
+
+                        <i class="bi bi-magic me-2"></i>
+
+                        Get Recommendation
+
+                    </a>
+
+
+                    <a
+                        href="#how-it-works"
+                        class="btn btn-outline-light btn-lg px-4"
+                    >
+
+                        <i class="bi bi-play-circle me-2"></i>
+
+                        How It Works
+
+                    </a>
+
+                </div>
+
+
+                <!-- Hero Stats -->
+
+                <div class="row mt-5">
+
+                    <div class="col-4">
+
+                        <h3 class="fw-bold mb-0">
+                            AI
+                        </h3>
+
+                        <small>
+                            Powered
+                        </small>
+
+                    </div>
+
+
+                    <div class="col-4">
+
+                        <h3 class="fw-bold mb-0">
+                            ML
+                        </h3>
+
+                        <small>
+                            Based
+                        </small>
+
+                    </div>
+
+
+                    <div class="col-4">
+
+                        <h3 class="fw-bold mb-0">
+                            24/7
+                        </h3>
+
+                        <small>
+                            Available
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Hero Card -->
+
+            <div class="col-lg-5 mt-5 mt-lg-0">
+
+                <div class="card border-0 shadow-lg rounded-4">
+
+                    <div class="card-body p-4">
+
+                        <div class="text-center mb-4">
+
+                            <div class="ai-icon mx-auto mb-3">
+
+                                <i class="bi bi-robot"></i>
+
+                            </div>
+
+
+                            <h4 class="fw-bold">
+
+                                AI Career Analysis
+
+                            </h4>
+
+
+                            <p class="text-muted mb-0">
+
+                                Find careers that match your profile
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- Analysis Items -->
+
+                        <div class="d-flex align-items-center mb-3">
+
+                            <div class="me-3 text-primary">
+
+                                <i class="bi bi-mortarboard-fill fs-4"></i>
+
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Education
+                                </strong>
+
+                                <div class="small text-muted">
+                                    Academic background
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="d-flex align-items-center mb-3">
+
+                            <div class="me-3 text-success">
+
+                                <i class="bi bi-code-slash fs-4"></i>
+
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Technical Skills
+                                </strong>
+
+                                <div class="small text-muted">
+                                    Programming & technologies
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="d-flex align-items-center mb-3">
+
+                            <div class="me-3 text-warning">
+
+                                <i class="bi bi-heart-fill fs-4"></i>
+
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Interests
+                                </strong>
+
+                                <div class="small text-muted">
+                                    Career interests
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="d-flex align-items-center">
+
+                            <div class="me-3 text-danger">
+
+                                <i class="bi bi-graph-up-arrow fs-4"></i>
+
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    AI Recommendation
+                                </strong>
+
+                                <div class="small text-muted">
+                                    Personalized career match
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT SECTION
+===================================================== -->
+
+<section
+    id="about"
+    class="py-5"
+>
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-primary-subtle text-primary px-3 py-2 mb-3">
+
+                <i class="bi bi-info-circle me-1"></i>
+
+                About The System
+
+            </span>
+
+
+            <h2 class="fw-bold">
+
+                About AI Career Guide
+
+            </h2>
+
+
+            <p class="text-muted mx-auto"
+               style="max-width: 700px;">
+
+                An intelligent career recommendation platform
+                designed to help students and beginners discover
+                suitable career paths.
+
+            </p>
+
+        </div>
+
+
+        <div class="row align-items-center g-5">
+
+
+            <!-- About Text -->
+
+            <div class="col-lg-6">
+
+                <h3 class="fw-bold mb-3">
+
+                    Make Better Career Decisions
+
+                </h3>
+
+
+                <p class="text-muted">
+
+                    Choosing the right career can be difficult.
+                    Students often have many interests but are
+                    unsure which career matches their skills and
+                    goals.
+
+                </p>
+
+
+                <p class="text-muted">
+
+                    AI Career Guide analyzes your educational
+                    background, programming knowledge, technical
+                    skills, interests, experience level, problem
+                    solving ability, and preferred work environment.
+
+                </p>
+
+
+                <p class="text-muted">
+
+                    Our Machine Learning model then provides
+                    personalized career recommendations along
+                    with skills to learn and a career roadmap.
+
+                </p>
+
+
+                <a
+                    href="{% url 'recommendation' %}"
+                    class="btn btn-primary mt-2"
+                >
+
+                    <i class="bi bi-arrow-right-circle me-2"></i>
+
+                    Start Career Analysis
+
+                </a>
+
+            </div>
+
+
+            <!-- About Features -->
+
+            <div class="col-lg-6">
+
+                <div class="row g-4">
+
+
+                    <div class="col-md-6">
+
+                        <div class="card feature-card h-100 border-0 shadow-sm">
+
+                            <div class="card-body">
+
+                                <div class="feature-icon mb-3">
+
+                                    <i class="bi bi-cpu"></i>
+
+                                </div>
+
+
+                                <h5 class="fw-bold">
+
+                                    Artificial Intelligence
+
+                                </h5>
+
+
+                                <p class="text-muted small mb-0">
+
+                                    AI-based analysis helps identify
+                                    suitable career paths.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="card feature-card h-100 border-0 shadow-sm">
+
+                            <div class="card-body">
+
+                                <div class="feature-icon mb-3">
+
+                                    <i class="bi bi-bar-chart"></i>
+
+                                </div>
+
+
+                                <h5 class="fw-bold">
+
+                                    Data Analysis
+
+                                </h5>
+
+
+                                <p class="text-muted small mb-0">
+
+                                    Your profile data is analyzed
+                                    to generate personalized results.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="card feature-card h-100 border-0 shadow-sm">
+
+                            <div class="card-body">
+
+                                <div class="feature-icon mb-3">
+
+                                    <i class="bi bi-person-check"></i>
+
+                                </div>
+
+
+                                <h5 class="fw-bold">
+
+                                    Personalized
+
+                                </h5>
+
+
+                                <p class="text-muted small mb-0">
+
+                                    Recommendations are based on
+                                    your individual profile.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="card feature-card h-100 border-0 shadow-sm">
+
+                            <div class="card-body">
+
+                                <div class="feature-icon mb-3">
+
+                                    <i class="bi bi-map"></i>
+
+                                </div>
+
+
+                                <h5 class="fw-bold">
+
+                                    Career Roadmap
+
+                                </h5>
+
+
+                                <p class="text-muted small mb-0">
+
+                                    Get a roadmap of skills and
+                                    technologies to learn.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HOW IT WORKS SECTION
+===================================================== -->
+
+<section
+    id="how-it-works"
+    class="py-5 bg-light"
+>
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-primary-subtle text-primary px-3 py-2 mb-3">
+
+                <i class="bi bi-lightbulb me-1"></i>
+
+                Simple Process
+
+            </span>
+
+
+            <h2 class="fw-bold">
+
+                How It Works
+
+            </h2>
+
+
+            <p class="text-muted">
+
+                Get your personalized career recommendation
+                in a few simple steps.
+
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- Step 1 -->
+
+            <div class="col-md-4">
+
+                <div class="card process-card h-100 border-0 shadow-sm">
+
+                    <div class="card-body text-center p-4">
+
+                        <div class="process-number">
+
+                            01
+
+                        </div>
+
+
+                        <div class="process-icon mb-3">
+
+                            <i class="bi bi-person-vcard"></i>
+
+                        </div>
+
+
+                        <h5 class="fw-bold">
+
+                            Enter Your Profile
+
+                        </h5>
+
+
+                        <p class="text-muted mb-0">
+
+                            Provide your education, programming
+                            languages, technical skills, interests,
+                            CGPA, and career preferences.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Step 2 -->
+
+            <div class="col-md-4">
+
+                <div class="card process-card h-100 border-0 shadow-sm">
+
+                    <div class="card-body text-center p-4">
+
+                        <div class="process-number">
+
+                            02
+
+                        </div>
+
+
+                        <div class="process-icon mb-3">
+
+                            <i class="bi bi-cpu"></i>
+
+                        </div>
+
+
+                        <h5 class="fw-bold">
+
+                            AI Analyzes Your Profile
+
+                        </h5>
+
+
+                        <p class="text-muted mb-0">
+
+                            The Machine Learning model analyzes
+                            your profile and identifies career
+                            patterns.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Step 3 -->
+
+            <div class="col-md-4">
+
+                <div class="card process-card h-100 border-0 shadow-sm">
+
+                    <div class="card-body text-center p-4">
+
+                        <div class="process-number">
+
+                            03
+
+                        </div>
+
+
+                        <div class="process-icon mb-3">
+
+                            <i class="bi bi-trophy"></i>
+
+                        </div>
+
+
+                        <h5 class="fw-bold">
+
+                            Get Your Career Recommendation
+
+                        </h5>
+
+
+                        <p class="text-muted mb-0">
+
+                            Receive your recommended career,
+                            confidence score, top careers,
+                            skills, and learning roadmap.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BENEFITS SECTION
+===================================================== -->
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-primary-subtle text-primary px-3 py-2 mb-3">
+
+                <i class="bi bi-check-circle me-1"></i>
+
+                Why Use AI Career Guide?
+
+            </span>
+
+
+            <h2 class="fw-bold">
+
+                Build Your Career With Confidence
+
+            </h2>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- Benefit 1 -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="card h-100 border-0 shadow-sm text-center">
+
+                    <div class="card-body p-4">
+
+                        <i class="bi bi-stars text-primary fs-1"></i>
+
+
+                        <h5 class="fw-bold mt-3">
+
+                            AI Powered
+
+                        </h5>
+
+
+                        <p class="text-muted small">
+
+                            Machine Learning helps analyze
+                            your career profile.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Benefit 2 -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="card h-100 border-0 shadow-sm text-center">
+
+                    <div class="card-body p-4">
+
+                        <i class="bi bi-person-check text-success fs-1"></i>
+
+
+                        <h5 class="fw-bold mt-3">
+
+                            Personalized
+
+                        </h5>
+
+
+                        <p class="text-muted small">
+
+                            Recommendations are generated
+                            according to your profile.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Benefit 3 -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="card h-100 border-0 shadow-sm text-center">
+
+                    <div class="card-body p-4">
+
+                        <i class="bi bi-book text-warning fs-1"></i>
+
+
+                        <h5 class="fw-bold mt-3">
+
+                            Skills To Learn
+
+                        </h5>
+
+
+                        <p class="text-muted small">
+
+                            Discover important skills and
+                            technologies for your career.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Benefit 4 -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="card h-100 border-0 shadow-sm text-center">
+
+                    <div class="card-body p-4">
+
+                        <i class="bi bi-signpost-2 text-danger fs-1"></i>
+
+
+                        <h5 class="fw-bold mt-3">
+
+                            Career Roadmap
+
+                        </h5>
+
+
+                        <p class="text-muted small">
+
+                            Follow a structured roadmap to
+                            develop your career.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CALL TO ACTION
+===================================================== -->
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+
+            <div class="card-body p-5 text-center bg-primary text-white">
+
+                <i class="bi bi-rocket-takeoff fs-1 mb-3"></i>
+
+
+                <h2 class="fw-bold">
+
+                    Ready To Discover Your Career?
+
+                </h2>
+
+
+                <p class="lead mb-4">
+
+                    Let AI analyze your profile and help you
+                    explore suitable career opportunities.
+
+                </p>
+
+
+                <a
+                    href="{% url 'recommendation' %}"
+                    class="btn btn-light btn-lg px-4"
+                >
+
+                    <i class="bi bi-magic me-2"></i>
+
+                    Get My Recommendation
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+{% endblock %}

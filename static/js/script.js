@@ -1,0 +1,1 @@
+console.log("AI Career Recommendation System loaded successfully!");

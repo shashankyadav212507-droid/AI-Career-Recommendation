@@ -1,0 +1,349 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Create Account | AI Career Guide
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8 col-lg-6">
+
+            <!-- ================= CARD ================= -->
+
+            <div class="card border-0 shadow-lg">
+
+                <div class="card-body p-4 p-md-5">
+
+
+                    <!-- ================= ICON ================= -->
+
+                    <div class="text-center mb-4">
+
+                        <div class="rounded-circle
+                                    bg-primary
+                                    bg-opacity-10
+                                    text-primary
+                                    d-inline-flex
+                                    align-items-center
+                                    justify-content-center"
+                             style="width: 70px;
+                                    height: 70px;">
+
+                            <i class="bi bi-person-plus-fill fs-2"></i>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================= HEADING ================= -->
+
+                    <div class="text-center mb-4">
+
+                        <h2 class="fw-bold">
+
+                            Create Your Account
+
+                        </h2>
+
+                        <p class="text-muted">
+
+                            Join AI Career Guide and discover
+                            your career path.
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- ================= MESSAGES ================= -->
+
+                    {% if messages %}
+
+                        {% for message in messages %}
+
+                            <div class="alert
+                                        {% if message.tags == 'error' %}
+                                            alert-danger
+                                        {% else %}
+                                            alert-{{ message.tags }}
+                                        {% endif %}
+                                        alert-dismissible
+                                        fade
+                                        show">
+
+                                {{ message }}
+
+                                <button type="button"
+                                        class="btn-close"
+                                        data-bs-dismiss="alert">
+                                </button>
+
+                            </div>
+
+                        {% endfor %}
+
+                    {% endif %}
+
+
+                    <!-- ================= FORM ================= -->
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+
+                        <!-- USERNAME -->
+
+                        <div class="mb-3">
+
+                            <label for="username"
+                                   class="form-label fw-semibold">
+
+                                Username
+
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+
+                                    <i class="bi bi-person"></i>
+
+                                </span>
+
+                                <input type="text"
+                                       class="form-control"
+                                       id="username"
+                                       name="username"
+                                       placeholder="Enter your username"
+                                       required>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- EMAIL -->
+
+                        <div class="mb-3">
+
+                            <label for="email"
+                                   class="form-label fw-semibold">
+
+                                Email Address
+
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+
+                                    <i class="bi bi-envelope"></i>
+
+                                </span>
+
+                                <input type="email"
+                                       class="form-control"
+                                       id="email"
+                                       name="email"
+                                       placeholder="Enter your email address"
+                                       required>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- PASSWORD -->
+
+                        <div class="mb-3">
+
+                            <label for="password"
+                                   class="form-label fw-semibold">
+
+                                Password
+
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+
+                                    <i class="bi bi-lock"></i>
+
+                                </span>
+
+                                <input type="password"
+                                       class="form-control"
+                                       id="password"
+                                       name="password"
+                                       placeholder="Create a password"
+                                       required>
+
+                                <button class="btn btn-outline-secondary"
+                                        type="button"
+                                        id="togglePassword">
+
+                                    <i class="bi bi-eye"
+                                       id="passwordIcon"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- CONFIRM PASSWORD -->
+
+                        <div class="mb-4">
+
+                            <label for="confirm_password"
+                                   class="form-label fw-semibold">
+
+                                Confirm Password
+
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+
+                                    <i class="bi bi-shield-lock"></i>
+
+                                </span>
+
+                                <input type="password"
+                                       class="form-control"
+                                       id="confirm_password"
+                                       name="confirm_password"
+                                       placeholder="Confirm your password"
+                                       required>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- SUBMIT -->
+
+                        <button type="submit"
+                                class="btn btn-primary w-100 py-2">
+
+                            <i class="bi bi-person-plus me-2"></i>
+
+                            Create Account
+
+                        </button>
+
+                    </form>
+
+
+                    <!-- ================= LOGIN ================= -->
+
+                    <div class="text-center mt-4">
+
+                        <p class="text-muted mb-0">
+
+                            Already have an account?
+
+                            <a href="{% url 'login' %}"
+                               class="text-primary fw-semibold text-decoration-none">
+
+                                Login here
+
+                            </a>
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- ================= SECURITY NOTE ================= -->
+
+                    <div class="text-center mt-4">
+
+                        <small class="text-muted">
+
+                            <i class="bi bi-shield-check me-1"></i>
+
+                            Your account information is securely
+                            stored by Django.
+
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- PASSWORD TOGGLE -->
+<!-- ===================================================== -->
+
+<script>
+
+    const togglePassword =
+        document.getElementById("togglePassword");
+
+    const password =
+        document.getElementById("password");
+
+    const passwordIcon =
+        document.getElementById("passwordIcon");
+
+
+    if (togglePassword) {
+
+        togglePassword.addEventListener(
+            "click",
+            function () {
+
+                if (password.type === "password") {
+
+                    password.type = "text";
+
+                    passwordIcon.classList.remove(
+                        "bi-eye"
+                    );
+
+                    passwordIcon.classList.add(
+                        "bi-eye-slash"
+                    );
+
+                } else {
+
+                    password.type = "password";
+
+                    passwordIcon.classList.remove(
+                        "bi-eye-slash"
+                    );
+
+                    passwordIcon.classList.add(
+                        "bi-eye"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+</script>
+
+{% endblock %}
