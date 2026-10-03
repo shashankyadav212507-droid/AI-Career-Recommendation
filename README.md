@@ -2,7 +2,7 @@
 
 An intelligent web-based **AI Career Recommendation System** built with **Python, Django, Bootstrap 5, and Machine Learning**.
 
-The system analyzes a user's educational background, programming skills, technical skills, interests, experience level, preferred domain, CGPA, problem-solving ability, work preference, and work type to recommend suitable career paths.
+The system analyzes a user's educational background, programming skills, technical skills, interests, experience level, preferred domain, CGPA, problem-solving ability, work preference, and work type to recommend suitable technology career paths.
 
 ---
 
@@ -12,10 +12,10 @@ Choosing the right career path can be difficult for students and beginners becau
 
 The **AI Career Recommendation System** provides personalized career recommendations using a Machine Learning model.
 
-Users enter their academic and technical information, and the system analyzes the data to generate:
+Users enter their academic and technical information, and the system analyzes the submitted profile to generate:
 
 * 🎯 Recommended career
-* 📊 Confidence score
+* 📊 AI confidence score
 * 🏆 Top career matches
 * 💡 Career summary
 * 📝 Career description
@@ -24,7 +24,7 @@ Users enter their academic and technical information, and the system analyzes th
 * 🗺️ Career roadmap
 * 📈 Career analysis chart
 
-The application also provides user authentication, recommendation history, dashboard statistics, and an administrator panel.
+The application also provides user authentication, a personalized dashboard, recommendation history, recommendation management, and a customized administrator panel.
 
 ---
 
@@ -35,35 +35,36 @@ The application also provides user authentication, recommendation history, dashb
 * User registration
 * User login and logout
 * Secure password authentication
-* Personalized user dashboard
+* Personalized dashboard
 * Career recommendation form
 * AI-based career prediction
 * Confidence score
 * Top 3 career matches
 * Career description
-* Recommended skills
+* Relevant skills
 * Skills to learn
 * Career roadmap
 * Recommendation history
 * View recommendation details
 * Delete previous recommendations
 * Authentication-protected pages
-* Responsive design for desktop, tablet, and mobile
+* Responsive design
+* Desktop, tablet, and mobile support
 
-### 🧠 AI/ML Features
+### 🧠 AI / Machine Learning Features
 
 * Machine Learning-based career prediction
-* TF-IDF text feature extraction
+* Text feature extraction using TF-IDF
 * Categorical feature processing
-* CGPA-based numerical feature
+* CGPA numerical feature
 * Random Forest classification
 * Top career predictions
-* Confidence calculation
+* Model confidence scores
 * Career-specific learning recommendations
 
 ### 👨‍💼 Admin Features
 
-* Django Admin Panel
+* Customized Django Admin Panel
 * Manage users
 * Manage career profiles
 * Manage career recommendations
@@ -71,13 +72,16 @@ The application also provides user authentication, recommendation history, dashb
 * Filter records
 * View recommendation confidence
 * View creation dates
-* Customized professional admin interface
+* Professional admin interface
+* Custom admin branding
 
 ### 📊 Visualization
 
 * Career confidence progress bar
 * Top career comparison
-* Interactive career analysis chart using Chart.js
+* Interactive career analysis chart
+* Chart.js visualization
+* Responsive charts
 
 ---
 
@@ -126,8 +130,6 @@ The project uses a **Random Forest Classifier** for career prediction.
 
 ### Model Pipeline
 
-The model processes different types of user information:
-
 ```text
 User Input
     ↓
@@ -152,7 +154,7 @@ Top Career Matches
 
 ### Text Processing
 
-The system uses **TF-IDF with unigram and bigram features** to process text-based information such as:
+The system uses **TF-IDF with unigram and bigram features** for text-based information such as:
 
 * Programming languages
 * Technical skills
@@ -164,12 +166,15 @@ The project uses:
 
 ```text
 RandomForestClassifier
+
 n_estimators = 300
 random_state = 42
 class_weight = "balanced"
 ```
 
-The model is trained using a career dataset containing **700 records across 14 career categories**.
+The model is trained using a career dataset containing multiple records across **14 career categories**.
+
+> Note: Model predictions depend on the training dataset and the information entered by the user. Confidence scores should be interpreted as model outputs rather than guaranteed career suitability.
 
 ---
 
@@ -177,20 +182,20 @@ The model is trained using a career dataset containing **700 records across 14 c
 
 The system can recommend careers from multiple technology domains, including:
 
-* Python Developer
-* Web Developer
-* PHP Developer
-* Software Developer
-* Data Analyst
-* Data Scientist
-* Machine Learning Engineer
-* AI Engineer
-* Java Developer
-* Database Administrator
-* Cyber Security Analyst
-* Cloud Engineer
-* DevOps Engineer
-* UI/UX Designer
+1. Python Developer
+2. Web Developer
+3. PHP Developer
+4. Software Developer
+5. Data Analyst
+6. Data Scientist
+7. Machine Learning Engineer
+8. AI Engineer
+9. Java Developer
+10. Database Administrator
+11. Cyber Security Analyst
+12. Cloud Engineer
+13. DevOps Engineer
+14. UI/UX Designer
 
 ---
 
@@ -198,8 +203,6 @@ The system can recommend careers from multiple technology domains, including:
 
 ```text
 AI-Career-Recommendation/
-│
-├── venv/
 │
 ├── config/
 │   ├── __init__.py
@@ -231,14 +234,12 @@ AI-Career-Recommendation/
 │   └── dashboard.html
 │
 ├── static/
-│   ├── admin/
-│   │   └── css/
-│   │       └── custom_admin.css
 │   ├── css/
-│   │   └── style.css
-│   ├── js/
-│   │   └── script.js
-│   └── images/
+│   │   ├── style.css
+│   │   └── admin/
+│   │       └── custom_admin.css
+│   └── js/
+│       └── script.js
 │
 ├── ml/
 │   ├── dataset/
@@ -253,30 +254,35 @@ AI-Career-Recommendation/
 │   ├── train_model.py
 │   └── predictor.py
 │
+├── screenshots/
+│   ├── home.png
+│   ├── login.png
+│   ├── dashboard.png
+│   ├── recommendation.png
+│   ├── result.png
+│   └── admin.png
+│
 ├── manage.py
 ├── requirements.txt
 ├── .gitignore
-├── db.sqlite3
 └── README.md
 ```
+
+> The `venv/` directory and local SQLite database are intentionally excluded from GitHub through `.gitignore`.
 
 ---
 
 ## 💾 Database
 
-The project uses **SQLite** as the default database.
+The project uses **SQLite** as the default development database.
 
-Database file:
+Django manages the database through its ORM and migration system.
 
-```text
-db.sqlite3
-```
+### Main Models
 
-The main database models are:
+#### CareerProfile
 
-### CareerProfile
-
-Stores information submitted by users, including:
+Stores user career-profile information such as:
 
 * Education
 * Programming languages
@@ -289,33 +295,31 @@ Stores information submitted by users, including:
 * Work preference
 * Work type
 
-### CareerRecommendation
+#### CareerRecommendation
 
-Stores generated recommendations including:
+Stores generated recommendation information such as:
 
 * Recommended career
-* Confidence
+* Confidence score
 * Top career matches
 * Career summary
-* Description
-* Skills
+* Career description
+* Relevant skills
 * Learning suggestions
 * Career roadmap
-* Date and time
+* Creation date and time
 
 ---
 
 ## ⚙️ Installation
 
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/AI-Career-Recommendation.git
+git clone https://github.com/shashankyadav212507-droid/AI-Career-Recommendation.git
 ```
 
-Replace `YOUR-USERNAME` with your GitHub username.
-
-Then enter the project directory:
+Enter the project directory:
 
 ```bash
 cd AI-Career-Recommendation
@@ -323,7 +327,7 @@ cd AI-Career-Recommendation
 
 ---
 
-### 2. Create a virtual environment
+### 2. Create a Virtual Environment
 
 ```bash
 python -m venv venv
@@ -331,7 +335,7 @@ python -m venv venv
 
 ---
 
-### 3. Activate the virtual environment
+### 3. Activate the Virtual Environment
 
 #### Windows PowerShell
 
@@ -347,7 +351,7 @@ venv\Scripts\activate
 
 ---
 
-### 4. Install dependencies
+### 4. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -355,7 +359,7 @@ pip install -r requirements.txt
 
 ---
 
-### 5. Apply database migrations
+### 5. Apply Database Migrations
 
 ```bash
 python manage.py migrate
@@ -363,7 +367,7 @@ python manage.py migrate
 
 ---
 
-### 6. Train the Machine Learning model
+### 6. Train the Machine Learning Model
 
 If the model needs to be regenerated:
 
@@ -371,7 +375,7 @@ If the model needs to be regenerated:
 python ml/train_model.py
 ```
 
-The trained model will be saved in:
+The trained model is saved as:
 
 ```text
 ml/model/career_model.pkl
@@ -379,23 +383,23 @@ ml/model/career_model.pkl
 
 ---
 
-### 7. Create an admin user
+### 7. Create an Administrator Account
 
 ```bash
 python manage.py createsuperuser
 ```
 
-Follow the terminal instructions to create the administrator account.
+Follow the terminal instructions.
 
 ---
 
-### 8. Start the Django development server
+### 8. Start the Development Server
 
 ```bash
 python manage.py runserver
 ```
 
-The application will be available at:
+Open the application:
 
 ```text
 http://127.0.0.1:8000/
@@ -405,45 +409,47 @@ http://127.0.0.1:8000/
 
 ## 🔐 Admin Panel
 
-Open:
+The Django administrator panel is available at:
 
 ```text
 http://127.0.0.1:8000/admin/
 ```
 
-Use the superuser credentials created with:
+Use the superuser account created with:
 
 ```bash
 python manage.py createsuperuser
 ```
 
-The admin panel allows administrators to manage:
+The administrator can manage:
 
 * Users
 * Career Profiles
 * Career Recommendations
 
+The project also includes a customized admin interface with **AI Career Guide ADMIN** branding and a professional visual design.
+
 ---
 
 ## 🧪 Testing
 
-The project was tested through the complete application workflow.
+The application was tested through the main end-to-end workflow.
 
 ### Tested Features
 
 * Homepage
 * User registration
 * User login
-* Career recommendation
+* User logout
+* Career recommendation form
 * AI prediction
 * Result page
 * Dashboard
 * Recommendation history
 * Recommendation details
 * Delete recommendation
-* Logout
 * Authentication protection
-* Admin data verification
+* Admin data management
 * Form validation
 * Responsive UI
 * Desktop layout
@@ -479,13 +485,15 @@ Logout
 
 ## 📊 Example Prediction
 
-Example output generated by the Machine Learning system:
+Example output from the Machine Learning system:
 
 ```text
 Recommended Career:
+
 Python Developer
 
 Confidence:
+
 35.67%
 
 Top Career Matches:
@@ -495,22 +503,24 @@ Top Career Matches:
 3. Web Developer — 7.33%
 ```
 
-The prediction depends on the information provided by the user and the trained Machine Learning model.
+Actual recommendations and confidence scores can vary depending on the user's input and the trained model.
 
 ---
 
 ## 🔒 Security
 
-The project includes basic Django security practices such as:
+The project uses standard Django security features including:
 
 * Django authentication
 * Password hashing
 * CSRF protection
 * Login-required views
-* POST-only delete operation
+* POST-based delete operation
 * Form validation
 * Authentication middleware
-* Protected dashboard and recommendation pages
+* Protected dashboard pages
+* Protected recommendation pages
+* Protected recommendation history
 
 ---
 
@@ -523,13 +533,13 @@ The application is designed to work across:
 * 📱 Tablet
 * 📱 Mobile
 
-Bootstrap 5 is used together with custom CSS for responsive layouts and UI components.
+Bootstrap 5 and custom CSS are used to create responsive layouts and components.
 
 ---
 
 ## 🎨 UI Design
 
-The application uses a modern technology-focused design with:
+The application includes a modern technology-focused interface featuring:
 
 * Blue and purple color scheme
 * Bootstrap components
@@ -540,6 +550,36 @@ The application uses a modern technology-focused design with:
 * Smooth animations
 * Professional dashboard
 * Customized Django Admin interface
+* Responsive forms
+* Modern buttons and cards
+
+---
+
+## 📸 Screenshots
+
+### 🏠 Home Page
+
+![Home Page](screenshots/home.png)
+
+### 🔐 Login Page
+
+![Login Page](screenshots/login.png)
+
+### 📊 Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+### 🤖 Career Recommendation
+
+![Career Recommendation](screenshots/recommendation.png)
+
+### 📈 AI Recommendation Result
+
+![AI Recommendation Result](screenshots/result.png)
+
+### ⚙️ Admin Panel
+
+![Admin Panel](screenshots/admin.png)
 
 ---
 
@@ -568,105 +608,61 @@ Possible future enhancements include:
 
 ## 🚀 Future Deployment
 
-The application can be deployed to a cloud platform using services such as:
+The application can potentially be deployed using platforms such as:
 
 * Render
 * Railway
 * PythonAnywhere
 * AWS
-* Azure
+* Microsoft Azure
 * Google Cloud
 
-For production deployment, the project should use a production-ready database and web server configuration.
+For production deployment, additional configuration is required, including:
 
----
-
-## 📸 Screenshots
-
-Add screenshots of your project here after uploading them to GitHub.
-
-Recommended screenshots:
-
-```text
-1. Homepage
-2. Registration Page
-3. Login Page
-4. Career Recommendation Form
-5. AI Recommendation Result
-6. Career Analysis Chart
-7. Dashboard
-8. Recommendation History
-9. Recommendation Details
-10. Django Admin Panel
-```
-
-Example:
-
-```markdown
-![Homepage](screenshots/homepage.png)
-
-![Recommendation Result](screenshots/result.png)
-
-![Dashboard](screenshots/dashboard.png)
-
-![Admin Panel](screenshots/admin.png)
-```
+* Production database
+* Environment variables
+* Secure secret key configuration
+* Debug mode disabled
+* Production web server
+* Static file configuration
+* HTTPS
 
 ---
 
 ## 👨‍💻 Author
 
-### Sandeep Yadav
+### Sandeep Kumar
 
-**BCA Student | Web Developer | Python & Java Enthusiast**
+**BCA Student | Web Developer | Python & PHP Enthusiast**
 
 United Institute of Management, Naini, Prayagraj
 
-### Skills
-
-* Python
-* Java
-* C
-* C++
-* HTML
-* CSS
-* JavaScript
-* PHP
-* Django
-* Bootstrap
-* MySQL
-* SQL
-* DBMS
-* Git & GitHub
-* Pandas
-* NumPy
-* Scikit-learn
-
----
-
 ## 📜 Project Information
 
-**Project Name:** AI Career Recommendation System
-
-**Project Type:** Academic / Personal Project
-
-**Domain:** Artificial Intelligence & Web Development
-
-**Backend:** Python + Django
-
-**Frontend:** HTML + CSS + Bootstrap + JavaScript
-
-**Database:** SQLite
-
-**Machine Learning:** Scikit-learn
-
-**Data Processing:** Pandas + NumPy
-
-**Visualization:** Chart.js
+| Category         | Details                                   |
+| ---------------- | ----------------------------------------- |
+| Project Name     | AI Career Recommendation System           |
+| Project Type     | Academic / Personal Project               |
+| Domain           | Artificial Intelligence & Web Development |
+| Backend          | Python + Django                           |
+| Frontend         | HTML + CSS + Bootstrap + JavaScript       |
+| Database         | SQLite                                    |
+| Machine Learning | Scikit-learn                              |
+| Data Processing  | Pandas + NumPy                            |
+| Visualization    | Chart.js                                  |
+| Version Control  | Git & GitHub                              |
 
 ---
 
-## ⭐ If You Find This Project Useful
+## 📁 Repository
+
+GitHub Repository:
+
+https://github.com/shashankyadav212507-droid/AI-Career-Recommendation
+
+---
+
+## ⭐ Support
 
 If you find this project useful for learning or reference, consider giving the repository a ⭐ on GitHub.
 
@@ -674,4 +670,8 @@ If you find this project useful for learning or reference, consider giving the r
 
 ## 📄 License
 
-This project is created for educational and learning purposes.
+This project is created for **educational and learning purposes**.
+
+---
+
+**Built with Python, Django, Bootstrap, and Machine Learning. 🚀**
